@@ -1,0 +1,41 @@
+<div class="panel tw-w-96" [ngClass]="{'expanded': isExpanded}" (click)="togglePanel()">
+
+
+    <ng-container
+        *ngTemplateOutlet="headerTemplate || defaultHeaderTemplate; context:{$implicit: headerContent , isExpanded: isExpanded}">
+    </ng-container>
+
+    <div class="tw-mt-2" [@expandCollapse]="isExpanded && !isCollapsing ? 'expanded' : 'collapsed'"
+        (@expandCollapse.done)="onAnimationEnd($event)">
+
+         
+        @if(isExpanded){
+            <ng-container class="panel-body">
+                <ng-container
+                    *ngTemplateOutlet="bodyTemplate || defaultPanelTemplate; context:{$implicit: bodyConent}"></ng-container>
+            </ng-container>
+        }
+    </div>
+
+</div>
+
+
+<ng-template #defaultHeaderTemplate let-isExpanded="isExpanded" let-headerContent>
+
+    <div class=" tw-flex tw-cursor-pointer tw-flex-row tw-bg-slate-50 tw-rounded-md tw-p-4">
+        <div class="tw-flex tw-flex-auto">
+            <ng-container *ngTemplateOutlet="headerContent"></ng-container>
+            <span>defaultHeaderTemplate</span>
+        </div>
+        <span class="material-icons">{{ isExpanded ? 'expand_less' : 'expand_more' }}</span>
+    </div>
+
+</ng-template>
+
+<ng-template #defaultPanelTemplate let-bodyConent>
+    <div class="tw-bg-slate-50 tw-rounded-md tw-p-4 ">
+        <span>defaultPanelTemplate</span>
+        <ng-container *ngTemplateOutlet="bodyConent"></ng-container>
+    </div>
+
+</ng-template>

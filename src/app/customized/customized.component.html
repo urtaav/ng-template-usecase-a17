@@ -1,0 +1,46 @@
+<div class="tw-flex tw-flex-col tw-h-screen tw-items-center tw-justify-center">
+    <div class="backdrop tw-flex tw-flex-row xs max-sm:tw-flex-col max-sm:tw-items-center tw-gap-8  tw-px-8 tw-py-8 tw-rounded-2xl ">
+        <div class="tw-flex tw-flex-col tw-gap-8">
+            <app-custom-expansion-panel>
+                <h4 *header class="tw-text-sm tw-font-medium">This is Header Header</h4>
+                <div *body class=" tw-flex tw-flex-row tw-gap-4">
+                    <img class="tw-object-cover tw-aspect-square tw-h-12 tw-rounded-md"
+                        src="https://picsum.photos/500" />
+
+                    <p class="tw-text-sm tw-text-stone-700">Occaecat aute, but quam, for doloremque, and sequi minim.
+                        Nequeporro lorem doloremque officia.
+                        Occaecat. </p>
+                </div>
+            </app-custom-expansion-panel>
+            <app-custom-expansion-panel>
+                <h4 *header class="tw-text-sm tw-font-medium">This is Header Header</h4>
+                <div *body class=" tw-flex tw-flex-row tw-gap-4">
+                    <img class="tw-object-cover tw-aspect-square tw-h-12 tw-rounded-md"
+                        src="https://picsum.photos/500" />
+                    <p class="tw-text-sm tw-text-stone-700">Occaecat aute, but quam, for doloremque, and sequi minim.
+                        Nequeporro lorem doloremque officia.
+                        Occaecat. </p>
+                </div>
+                <!-- custom -->
+                <ng-container *headerTemplateDef="let headerContent; let expanded=isExpanded">
+                    <div class="tw-transition tw-cursor-pointer tw-flex tw-flex-row  tw-rounded-md tw-p-4"
+                        [ngClass]="{'tw-bg-blue-600 tw-text-white tw-shadow-xl':expanded,
+                    'tw-bg-slate-50 tw-text-stone-900':!expanded }">
+                        <div class="tw-flex tw-flex-auto">
+                            <ng-container *ngTemplateOutlet="headerContent"></ng-container>
+                            <span>headerContent</span>
+                        </div>
+                        <span class="tw-transition material-icons tw-rotate-0 "
+                            [ngClass]="{'tw-rotate-180':expanded }">expand_more</span>
+                    </div>
+                </ng-container>
+                <ng-container *bodyTemplateDef="let bodyConent">
+                    <div class="tw-bg-white tw-border-blue-600 tw-border-2 tw-rounded-md tw-p-4 tw-shadow-xl">
+                        <ng-container *ngTemplateOutlet="bodyConent"></ng-container>
+                        <span>bodyConent</span>
+                    </div>
+                </ng-container>
+            </app-custom-expansion-panel>
+        </div>
+    </div>
+</div>

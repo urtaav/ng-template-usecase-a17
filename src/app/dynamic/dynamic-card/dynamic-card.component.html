@@ -1,0 +1,14 @@
+<div
+    class=" tw-flex min-width  tw-flex-col tw-gap-1 tw-px-4 tw-py-4 tw-rounded-2xl hover:tw-shadow-lg tw-shadow-md tw-bg-white">
+
+    <div class="tw-flex tw-flex-row tw-items-center tw-gap-2">
+        <h4 class="tw-text-sm tw-text-slate-700">{{data?.header}}</h4>
+    </div>
+
+    <div class="tw-p-0.5"></div>
+
+    @if (template){
+    <ng-container *ngTemplateOutlet="template; context:{$implicit: data?.value}">
+    </ng-container>
+    }
+</div>

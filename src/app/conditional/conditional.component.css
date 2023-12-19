@@ -1,0 +1,13 @@
+.backdrop {
+
+    background-color:#f1f5f9;
+    background-image: linear-gradient(135deg,#a4b0c54a 10%,#0000 0,#0000 50%,#a4b0c54a 0,#a4b0c54a 60%,#0000 0,#0000);
+    background-size: 7.07px 7.07px;
+    border: solid 1px #a4b0c54a;
+}
+
+.card-area{
+    min-height: 340px;
+    min-width: 290px;
+
+}

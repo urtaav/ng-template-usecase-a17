@@ -1,0 +1,18 @@
+<div class=" tw-flex  tw-flex-col tw-gap-1 tw-px-4 tw-py-4 tw-rounded-2xl hover:tw-shadow-lg tw-shadow-md tw-bg-white">
+    <div class="tw-flex tw-flex-row tw-items-center tw-gap-2">
+        <div class="tw-rounded-full tw-aspect-square tw-h-10 tw-bg-slate-300 tw-flex tw-justify-center tw-items-center tw-text-black tw-text-opacity-30">{{model?.name | slice: 0:1}}</div>
+        <div class="tw-flex tw-flex-col">
+            <h4 class="tw-text-sm tw-text-gray-800">{{model?.name}}</h4>
+            <h5 class="tw-text-xs tw-text-gray-400">{{model?.date | date:"dd-mm-yyyy"}} </h5>
+        </div>
+    </div>
+    <div class="tw-p-1"></div>
+    <ng-container
+        *ngTemplateOutlet="cardDescriptionTemplate || defaultDescriptionTemplate; context:{$implicit: model?.description}">
+    </ng-container>
+</div>
+<ng-template #defaultDescriptionTemplate let-description>
+    <div class="tw-bg-gray-200 tw-rounded-xl tw-aspect-square tw-h-52 tw-flex tw-justify-center tw-items-center">
+        <h1 class="tw-text-6xl tw-text-gray-400">{{description}}</h1>
+    </div>
+</ng-template>

@@ -1,0 +1,13 @@
+<div class="tw-flex tw-flex-col tw-h-screen tw-items-center tw-justify-center">
+    <div class="backdrop tw-flex tw-flex-row xs max-sm:tw-flex-col max-sm:tw-items-center tw-gap-8  tw-px-8 tw-py-8 tw-rounded-2xl ">
+        <app-reusable-card [model]="_model1"></app-reusable-card>
+        <app-reusable-card [model]="_model2">
+            <ng-template appDescription let-description>
+                <div class="tw-aspect-square tw-h-52 tw-flex tw-justify-center tw-items-center">
+                    <img class="tw-object-cover tw-rounded-xl " [src]="description"/>
+                </div>
+            </ng-template>
+        </app-reusable-card>
+        <app-reusable-card [model]="_model3"></app-reusable-card>
+    </div>
+</div>

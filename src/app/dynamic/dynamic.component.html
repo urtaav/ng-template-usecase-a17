@@ -1,0 +1,32 @@
+<div class="tw-flex tw-flex-col tw-h-screen tw-items-center tw-justify-center">
+    <div class="backdrop tw-flex tw-flex-col max-sm:tw-items-center tw-gap-4 tw-px-8 tw-py-8 tw-rounded-2xl ">
+        @for (item of _list; track $index) {
+            @switch (item.valueType) {
+                @case ('text') {
+                    <app-dynamic-card [data]="item" [template]="textTemplate" />
+                }
+                @case ('input') {
+                    <app-dynamic-card [data]="item" [template]="inputTemplate" />
+                }
+                @case ('image') {
+                    <app-dynamic-card [data]="item" [template]="imageTemplate" />
+                }
+                @default {
+                <app-dynamic-card [data]="item" />
+                }
+            }
+        }
+    </div>
+</div>
+
+<ng-template #textTemplate let-value>
+    <app-template-text [value]="value"></app-template-text>
+</ng-template>
+
+<ng-template #inputTemplate let-value>
+    <app-template-input [value]="value"></app-template-input>
+</ng-template>
+
+<ng-template #imageTemplate let-value>
+    <app-template-image [value]="value"></app-template-image>
+</ng-template>
